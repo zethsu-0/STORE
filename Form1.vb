@@ -91,14 +91,14 @@ Public Class Form1
 
 
         Dim checkQuery As String = "SELECT Product_name, Quantity, Price FROM stocks WHERE Item_no = @Item_no"
-        Using selectCmd As New SqlCommand(checkQuery, con)
-            selectCmd.Parameters.AddWithValue("@Item_no", Item_no)
+        Using Cmd As New SqlCommand(checkQuery, con)
+            Cmd.Parameters.AddWithValue("@Item_no", Item_no)
 
-            Using reader As SqlDataReader = selectCmd.ExecuteReader()
+            Using reader As SqlDataReader = Cmd.ExecuteReader()
                 If reader.Read() Then
-                    Product_name = reader("Product_name").ToString()
-                    Quantity = Convert.ToInt32(reader("Quantity"))
-                    Price = Convert.ToDecimal(reader("Price"))
+                    Product_name = reader("Product_name")
+                    Quantity = reader("Quantity")
+                    Price = reader("Price")
 
                 Else
                     MsgBox("Item not found in stocks.", vbCritical)
