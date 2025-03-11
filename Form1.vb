@@ -84,11 +84,13 @@ Public Class Form1
     Public Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Opencon()
 
+
+
         Dim Item_no As String = TextBox1.Text
         Dim Product_name As String = String.Empty
         Dim Quantity As Integer = 0
         Dim Price As Decimal = 0
-
+        Dim multiplier As Integer = NumericUpDown1.Value
 
         Dim checkQuery As String = "SELECT Product_name, Quantity, Price FROM stocks WHERE Item_no = @Item_no"
         Using Cmd As New SqlCommand(checkQuery, con)
@@ -109,8 +111,8 @@ Public Class Form1
         End Using
 
 
-        If Quantity <= 0 Then
-            MsgBox("Out of stock!", vbExclamation)
+        If Quantity < multiplier Then
+            MsgBox("Not enough stock!", vbExclamation)
             con.Close()
             Return
         End If
@@ -140,15 +142,16 @@ Public Class Form1
             Using insertCmd As New SqlCommand(insertQuery, con)
                 insertCmd.Parameters.AddWithValue("@Item_no", Item_no)
                 insertCmd.Parameters.AddWithValue("@Product_name", Product_name)
-                insertCmd.Parameters.AddWithValue("@Quantity", 1)
-                insertCmd.Parameters.AddWithValue("@Price", Price)
+                insertCmd.Parameters.AddWithValue("@Quantity", 1 * multiplier)
+                insertCmd.Parameters.AddWithValue("@Price", multiplier * Price)
                 insertCmd.ExecuteNonQuery()
             End Using
         End If
 
-        Dim updateStockQuery As String = "UPDATE Stocks SET Quantity = Quantity - 1 WHERE Item_no = @Item_no"
+        Dim updateStockQuery As String = "UPDATE Stocks SET Quantity = Quantity - @multiplier WHERE Item_no = @Item_no"
         Using stockCmd As New SqlCommand(updateStockQuery, con)
             stockCmd.Parameters.AddWithValue("@Item_no", Item_no)
+            stockCmd.Parameters.AddWithValue("@multiplier", multiplier)
             stockCmd.ExecuteNonQuery()
         End Using
 
@@ -167,7 +170,7 @@ Public Class Form1
                 totalCartPrice = Convert.ToDecimal(result)
             End If
         End Using
-
+        NumericUpDown1.Value = 1
         TextBox2.Text = totalCartPrice
 
         con.Close()
@@ -179,6 +182,7 @@ Public Class Form1
         StocksItems()
         TextBox3.Text = ""
         TextBox4.Text = ""
+        NumericUpDown1.Value = 1
         MessageBox.Show("Cart cleared successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
@@ -195,7 +199,7 @@ Public Class Form1
             MessageBox.Show("lagyan mo boss")
         End If
 
-
+        NumericUpDown1.Value = 1
     End Sub
     Private Sub TextBox3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox3.KeyPress
         If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso e.KeyChar <> "."c Then
