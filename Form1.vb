@@ -14,6 +14,7 @@ Public Class Form1
         StocksItems()
         resetstock()
         InitializeStock()
+        resetreceipt()
     End Sub
 
     Public Sub StocksItems()
@@ -56,6 +57,8 @@ Public Class Form1
 
     End Sub
 
+
+
     Public Sub InitializeStock()
         Opencon()
 
@@ -79,29 +82,42 @@ Public Class Form1
         con.Close()
     End Sub
 
+    Public Sub resetreceipt()
+        Dim delquery As String = "DELETE FROM receipt"
+        Using cmd As SqlCommand = New SqlCommand(delquery, con)
 
+            con.Open()
+            cmd.ExecuteNonQuery()
+            con.Close()
+
+        End Using
+    End Sub
 
     Public Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Opencon()
 
-
-
         Dim Item_no As String = TextBox1.Text
         Dim Product_name As String = String.Empty
-        Dim Quantity As Integer = 0
+        Dim StockQuantity As Integer = 0
         Dim Price As Decimal = 0
-        Dim multiplier As Integer = NumericUpDown1.Value
+        Dim CartQuantity As Integer = Convert.ToInt32(NumericUpDown1.Value) ' Get selected quantity
 
-        Dim checkQuery As String = "SELECT Product_name, Quantity, Price FROM stocks WHERE Item_no = @Item_no"
-        Using Cmd As New SqlCommand(checkQuery, con)
-            Cmd.Parameters.AddWithValue("@Item_no", Item_no)
+        ' Check if a valid quantity is selected
+        If CartQuantity <= 0 Then
+            MsgBox("Please select a valid quantity.", vbExclamation)
+            con.Close()
+            Return
+        End If
 
-            Using reader As SqlDataReader = Cmd.ExecuteReader()
+        ' Retrieve stock details
+        Dim checkQuery As String = "SELECT Product_name, Quantity, Price FROM Stocks WHERE Item_no = @Item_no"
+        Using selectCmd As New SqlCommand(checkQuery, con)
+            selectCmd.Parameters.AddWithValue("@Item_no", Item_no)
+            Using reader As SqlDataReader = selectCmd.ExecuteReader()
                 If reader.Read() Then
-                    Product_name = reader("Product_name")
-                    Quantity = reader("Quantity")
-                    Price = reader("Price")
-
+                    Product_name = reader("Product_name").ToString()
+                    StockQuantity = Convert.ToInt32(reader("Quantity"))
+                    Price = Convert.ToDecimal(reader("Price"))
                 Else
                     MsgBox("Item not found in stocks.", vbCritical)
                     con.Close()
@@ -110,69 +126,75 @@ Public Class Form1
             End Using
         End Using
 
-
-        If Quantity < multiplier Then
-            MsgBox("Not enough stock!", vbExclamation)
+        ' Check if enough stock is available
+        If StockQuantity < CartQuantity Then
+            MsgBox("Not enough stock available!", vbExclamation)
             con.Close()
             Return
         End If
 
-
-        Dim cartQuantity As Integer = 0
+        ' Check if item is already in the cart
+        Dim existingCartQuantity As Integer = 0
         Dim checkCartQuery As String = "SELECT Quantity FROM Cart WHERE Item_No = @Item_no"
         Using cmd As New SqlCommand(checkCartQuery, con)
             cmd.Parameters.AddWithValue("@Item_no", Item_no)
             Using reader As SqlDataReader = cmd.ExecuteReader()
                 If reader.Read() Then
-                    cartQuantity = Convert.ToInt32(reader("Quantity")) + 1
+                    existingCartQuantity = Convert.ToInt32(reader("Quantity"))
                 End If
             End Using
         End Using
 
-        If cartQuantity > 0 Then
+
+        If existingCartQuantity > 0 Then
+
+            Dim newCartQuantity As Integer = existingCartQuantity + CartQuantity
             Dim updateQuery As String = "UPDATE Cart SET Quantity = @Quantity, Price = @Price WHERE Item_No = @Item_no"
             Using updateCmd As New SqlCommand(updateQuery, con)
-                updateCmd.Parameters.AddWithValue("@Quantity", cartQuantity)
-                updateCmd.Parameters.AddWithValue("@Price", cartQuantity * Price)
+                updateCmd.Parameters.AddWithValue("@Quantity", newCartQuantity)
+                updateCmd.Parameters.AddWithValue("@Price", newCartQuantity * Price)
                 updateCmd.Parameters.AddWithValue("@Item_no", Item_no)
                 updateCmd.ExecuteNonQuery()
             End Using
         Else
+
             Dim insertQuery As String = "INSERT INTO Cart (Item_No, Product_name, Quantity, Price) VALUES (@Item_no, @Product_name, @Quantity, @Price)"
             Using insertCmd As New SqlCommand(insertQuery, con)
                 insertCmd.Parameters.AddWithValue("@Item_no", Item_no)
                 insertCmd.Parameters.AddWithValue("@Product_name", Product_name)
-                insertCmd.Parameters.AddWithValue("@Quantity", 1 * multiplier)
-                insertCmd.Parameters.AddWithValue("@Price", multiplier * Price)
+                insertCmd.Parameters.AddWithValue("@Quantity", CartQuantity)
+                insertCmd.Parameters.AddWithValue("@Price", CartQuantity * Price)
                 insertCmd.ExecuteNonQuery()
             End Using
         End If
 
-        Dim updateStockQuery As String = "UPDATE Stocks SET Quantity = Quantity - @multiplier WHERE Item_no = @Item_no"
+
+        Dim updateStockQuery As String = "UPDATE Stocks SET Quantity = Quantity - @CartQuantity WHERE Item_no = @Item_no"
         Using stockCmd As New SqlCommand(updateStockQuery, con)
+            stockCmd.Parameters.AddWithValue("@CartQuantity", CartQuantity)
             stockCmd.Parameters.AddWithValue("@Item_no", Item_no)
-            stockCmd.Parameters.AddWithValue("@multiplier", multiplier)
             stockCmd.ExecuteNonQuery()
         End Using
 
         MsgBox("Item added to Cart successfully.", vbInformation)
         TextBox1.Text = ""
+        NumericUpDown1.Value = 1
+
 
         CartItems()
         StocksItems()
 
+
         Dim totalCartPrice As Decimal = 0
         Dim totalPriceQuery As String = "SELECT SUM(Price) AS TotalPrice FROM Cart"
         Using totalPriceCmd As New SqlCommand(totalPriceQuery, con)
-
             Dim result As Object = totalPriceCmd.ExecuteScalar()
             If result IsNot DBNull.Value Then
                 totalCartPrice = Convert.ToDecimal(result)
             End If
         End Using
-        NumericUpDown1.Value = 1
-        TextBox2.Text = totalCartPrice
 
+        TextBox2.Text = totalCartPrice.ToString()
         con.Close()
     End Sub
 
@@ -180,27 +202,42 @@ Public Class Form1
         resetstock()
         CartItems()
         StocksItems()
+        resetreceipt()
         TextBox3.Text = ""
         TextBox4.Text = ""
         NumericUpDown1.Value = 1
         MessageBox.Show("Cart cleared successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Public Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim forSukli As Integer = TextBox3.Text - TextBox2.Text
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
-        If Integer.TryParse(TextBox3.Text, Nothing) Then
-            If TextBox3.Text >= TextBox2.Text Then
-                TextBox4.Text = forSukli
-            Else
-                MessageBox.Show("Kulanggg")
-            End If
-        Else
-            MessageBox.Show("lagyan mo boss")
+        Dim TotalCartPrice As Decimal
+        Dim PaymentAmount As Decimal
+
+        If Not Decimal.TryParse(TextBox2.Text, TotalCartPrice) Then
+            MsgBox("Invalid total price!", vbExclamation)
+            Return
         End If
 
-        NumericUpDown1.Value = 1
+        If Not Decimal.TryParse(TextBox3.Text, PaymentAmount) Then
+            MsgBox("Please enter a valid payment amount!", vbExclamation)
+            Return
+        End If
+
+
+        If PaymentAmount < TotalCartPrice Then
+            MessageBox.Show("Kulanggg")
+        Else
+            Dim Change As Decimal = PaymentAmount - TotalCartPrice
+            TextBox4.Text = Change
+
+
+
+        End If
+
+        resetreceipt()
     End Sub
+
     Private Sub TextBox3_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox3.KeyPress
         If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) AndAlso e.KeyChar <> "."c Then
             e.Handled = True
@@ -220,4 +257,32 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        CartItems()
+        StocksItems()
+
+        Dim TotalCartAmount As String = TextBox2.Text
+        Dim AmountEntered As String = TextBox3.Text
+        Dim Change As String = TextBox4.Text
+
+
+        Dim insertreceipt As String = "INSERT INTO receipt (TotalCartAmount, AmountEntered, Change) VALUES (@TotalCartAmount, @AmountEntered, @Change)"
+
+        Using cmd As New SqlCommand(insertreceipt, con)
+            cmd.Parameters.AddWithValue("@TotalCartAmount", TotalCartAmount)
+            cmd.Parameters.AddWithValue("@AmountEntered", AmountEntered)
+            cmd.Parameters.AddWithValue("@Change", Change)
+
+
+            con.Open()
+            cmd.ExecuteNonQuery()
+            con.Close()
+
+
+
+            Form3.Show()
+
+
+        End Using
+    End Sub
 End Class
