@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,13 +20,15 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ItemnoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -59,15 +61,7 @@ Partial Class Form1
         Me.Label6 = New System.Windows.Forms.Label()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox5 = New System.Windows.Forms.CheckBox()
-        Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown3 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown4 = New System.Windows.Forms.NumericUpDown()
-        Me.NumericUpDown5 = New System.Windows.Forms.NumericUpDown()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StocksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.STOREDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,10 +71,6 @@ Partial Class Form1
         CType(Me.CartBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.STOREDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -88,9 +78,11 @@ Partial Class Form1
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS PGothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -99,14 +91,24 @@ Partial Class Form1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemnoDataGridViewTextBoxColumn, Me.ProductnameDataGridViewTextBoxColumn, Me.QuantityDataGridViewTextBoxColumn, Me.PriceDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.StocksBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(215, 81)
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Palatino Linotype", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView1.GridColor = System.Drawing.Color.Black
+        Me.DataGridView1.Location = New System.Drawing.Point(38, 83)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridView1.Size = New System.Drawing.Size(496, 161)
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("MS PGothic", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridView1.Size = New System.Drawing.Size(560, 161)
         Me.DataGridView1.TabIndex = 0
         '
         'ItemnoDataGridViewTextBoxColumn
@@ -115,6 +117,7 @@ Partial Class Form1
         Me.ItemnoDataGridViewTextBoxColumn.HeaderText = "Item_no"
         Me.ItemnoDataGridViewTextBoxColumn.Name = "ItemnoDataGridViewTextBoxColumn"
         Me.ItemnoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ItemnoDataGridViewTextBoxColumn.Width = 108
         '
         'ProductnameDataGridViewTextBoxColumn
         '
@@ -122,6 +125,7 @@ Partial Class Form1
         Me.ProductnameDataGridViewTextBoxColumn.HeaderText = "Product_name"
         Me.ProductnameDataGridViewTextBoxColumn.Name = "ProductnameDataGridViewTextBoxColumn"
         Me.ProductnameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ProductnameDataGridViewTextBoxColumn.Width = 170
         '
         'QuantityDataGridViewTextBoxColumn
         '
@@ -129,6 +133,7 @@ Partial Class Form1
         Me.QuantityDataGridViewTextBoxColumn.HeaderText = "Quantity"
         Me.QuantityDataGridViewTextBoxColumn.Name = "QuantityDataGridViewTextBoxColumn"
         Me.QuantityDataGridViewTextBoxColumn.ReadOnly = True
+        Me.QuantityDataGridViewTextBoxColumn.Width = 118
         '
         'PriceDataGridViewTextBoxColumn
         '
@@ -136,6 +141,7 @@ Partial Class Form1
         Me.PriceDataGridViewTextBoxColumn.HeaderText = "Price"
         Me.PriceDataGridViewTextBoxColumn.Name = "PriceDataGridViewTextBoxColumn"
         Me.PriceDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PriceDataGridViewTextBoxColumn.Width = 86
         '
         'StocksBindingSource
         '
@@ -163,38 +169,51 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(215, 262)
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button1.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(774, 93)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(160, 56)
+        Me.Button1.Size = New System.Drawing.Size(138, 43)
         Me.Button1.TabIndex = 1
         Me.Button1.Text = "Add to cart"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'DataGridView2
         '
         Me.DataGridView2.AllowUserToAddRows = False
         Me.DataGridView2.AllowUserToDeleteRows = False
         Me.DataGridView2.AutoGenerateColumns = False
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("MS PGothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
         Me.DataGridView2.DataSource = Me.CartBindingSource
-        Me.DataGridView2.Location = New System.Drawing.Point(80, 379)
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Palatino Linotype", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle5
+        Me.DataGridView2.GridColor = System.Drawing.Color.Black
+        Me.DataGridView2.Location = New System.Drawing.Point(939, 81)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.ReadOnly = True
         Me.DataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
-        Me.DataGridView2.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.DataGridView2.Size = New System.Drawing.Size(631, 139)
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("MS PGothic", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
+        Me.DataGridView2.RowsDefaultCellStyle = DataGridViewCellStyle6
+        Me.DataGridView2.Size = New System.Drawing.Size(552, 161)
         Me.DataGridView2.TabIndex = 3
         '
         'DataGridViewTextBoxColumn1
@@ -203,6 +222,7 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn1.HeaderText = "Item_no"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 108
         '
         'DataGridViewTextBoxColumn2
         '
@@ -210,6 +230,7 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn2.HeaderText = "Product_name"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 170
         '
         'DataGridViewTextBoxColumn3
         '
@@ -217,6 +238,7 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn3.HeaderText = "Quantity"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 118
         '
         'DataGridViewTextBoxColumn4
         '
@@ -224,6 +246,7 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn4.HeaderText = "Price"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 86
         '
         'CartBindingSource
         '
@@ -241,8 +264,8 @@ Partial Class Form1
         '
         'TextBox2
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(305, 535)
+        Me.TextBox2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(705, 155)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ReadOnly = True
         Me.TextBox2.Size = New System.Drawing.Size(158, 26)
@@ -250,8 +273,8 @@ Partial Class Form1
         '
         'TextBox3
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(305, 578)
+        Me.TextBox3.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox3.Location = New System.Drawing.Point(705, 198)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(158, 26)
         Me.TextBox3.TabIndex = 5
@@ -259,58 +282,60 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(96, 533)
+        Me.Label1.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(627, 154)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(44, 20)
+        Me.Label1.Size = New System.Drawing.Size(47, 18)
         Me.Label1.TabIndex = 6
         Me.Label1.Text = "Total"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(96, 585)
+        Me.Label2.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(627, 206)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(65, 20)
+        Me.Label2.Size = New System.Drawing.Size(66, 18)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Amount"
         '
         'Button2
         '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(303, 620)
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(703, 240)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(160, 30)
         Me.Button2.TabIndex = 8
         Me.Button2.Text = "Proceed"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'TextBox4
         '
-        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(305, 672)
+        Me.TextBox4.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox4.Location = New System.Drawing.Point(705, 292)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(158, 26)
         Me.TextBox4.TabIndex = 9
         '
         'Button3
         '
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(303, 707)
+        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button3.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(703, 327)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(160, 30)
         Me.Button3.TabIndex = 10
         Me.Button3.Text = "New Transaction"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(96, 679)
+        Me.Label3.Font = New System.Drawing.Font("Modern No. 20", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(627, 300)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(65, 20)
+        Me.Label3.Size = New System.Drawing.Size(61, 18)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Change"
         '
@@ -318,7 +343,7 @@ Partial Class Form1
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(336, 329)
+        Me.Label5.Location = New System.Drawing.Point(1138, 31)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(108, 37)
         Me.Label5.TabIndex = 13
@@ -328,7 +353,7 @@ Partial Class Form1
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(309, 29)
+        Me.Label6.Location = New System.Drawing.Point(210, 31)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(154, 37)
         Me.Label6.TabIndex = 14
@@ -337,7 +362,7 @@ Partial Class Form1
         'NumericUpDown1
         '
         Me.NumericUpDown1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericUpDown1.Location = New System.Drawing.Point(150, 81)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(701, 95)
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(48, 35)
         Me.NumericUpDown1.TabIndex = 15
@@ -345,121 +370,31 @@ Partial Class Form1
         '
         'Button4
         '
+        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Button4.Enabled = False
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(551, 707)
+        Me.Button4.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(1331, 327)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(160, 30)
         Me.Button4.TabIndex = 16
         Me.Button4.Text = "Print Receipt"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.UseVisualStyleBackColor = False
         '
-        'CheckBox1
+        'TextBox1
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(99, 84)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(45, 33)
-        Me.CheckBox1.TabIndex = 17
-        Me.CheckBox1.Text = "1"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox2.Location = New System.Drawing.Point(99, 123)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(45, 33)
-        Me.CheckBox2.TabIndex = 18
-        Me.CheckBox2.Text = "2"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox3.Location = New System.Drawing.Point(99, 165)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(45, 33)
-        Me.CheckBox3.TabIndex = 19
-        Me.CheckBox3.Text = "3"
-        Me.CheckBox3.UseVisualStyleBackColor = True
-        '
-        'CheckBox4
-        '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox4.Location = New System.Drawing.Point(99, 204)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(45, 33)
-        Me.CheckBox4.TabIndex = 20
-        Me.CheckBox4.Text = "4"
-        Me.CheckBox4.UseVisualStyleBackColor = True
-        '
-        'CheckBox5
-        '
-        Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox5.Location = New System.Drawing.Point(99, 245)
-        Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(45, 33)
-        Me.CheckBox5.TabIndex = 21
-        Me.CheckBox5.Text = "5"
-        Me.CheckBox5.UseVisualStyleBackColor = True
-        '
-        'NumericUpDown2
-        '
-        Me.NumericUpDown2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericUpDown2.Location = New System.Drawing.Point(150, 122)
-        Me.NumericUpDown2.Name = "NumericUpDown2"
-        Me.NumericUpDown2.Size = New System.Drawing.Size(48, 35)
-        Me.NumericUpDown2.TabIndex = 22
-        Me.NumericUpDown2.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
-        'NumericUpDown3
-        '
-        Me.NumericUpDown3.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericUpDown3.Location = New System.Drawing.Point(150, 163)
-        Me.NumericUpDown3.Name = "NumericUpDown3"
-        Me.NumericUpDown3.Size = New System.Drawing.Size(48, 35)
-        Me.NumericUpDown3.TabIndex = 23
-        Me.NumericUpDown3.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
-        'NumericUpDown4
-        '
-        Me.NumericUpDown4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericUpDown4.Location = New System.Drawing.Point(150, 204)
-        Me.NumericUpDown4.Name = "NumericUpDown4"
-        Me.NumericUpDown4.Size = New System.Drawing.Size(48, 35)
-        Me.NumericUpDown4.TabIndex = 24
-        Me.NumericUpDown4.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
-        'NumericUpDown5
-        '
-        Me.NumericUpDown5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumericUpDown5.Location = New System.Drawing.Point(150, 245)
-        Me.NumericUpDown5.Name = "NumericUpDown5"
-        Me.NumericUpDown5.Size = New System.Drawing.Size(48, 35)
-        Me.NumericUpDown5.TabIndex = 25
-        Me.NumericUpDown5.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(604, 94)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(91, 35)
+        Me.TextBox1.TabIndex = 17
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(800, 822)
-        Me.Controls.Add(Me.NumericUpDown5)
-        Me.Controls.Add(Me.NumericUpDown4)
-        Me.Controls.Add(Me.NumericUpDown3)
-        Me.Controls.Add(Me.NumericUpDown2)
-        Me.Controls.Add(Me.CheckBox5)
-        Me.Controls.Add(Me.CheckBox4)
-        Me.Controls.Add(Me.CheckBox3)
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.CheckBox1)
+        Me.ClientSize = New System.Drawing.Size(1538, 378)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.Label6)
@@ -487,10 +422,6 @@ Partial Class Form1
         CType(Me.CartBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.STOREDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -528,13 +459,5 @@ Partial Class Form1
     Friend WithEvents Label6 As Label
     Friend WithEvents NumericUpDown1 As NumericUpDown
     Friend WithEvents Button4 As Button
-    Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents CheckBox3 As CheckBox
-    Friend WithEvents CheckBox4 As CheckBox
-    Friend WithEvents CheckBox5 As CheckBox
-    Friend WithEvents NumericUpDown2 As NumericUpDown
-    Friend WithEvents NumericUpDown3 As NumericUpDown
-    Friend WithEvents NumericUpDown4 As NumericUpDown
-    Friend WithEvents NumericUpDown5 As NumericUpDown
+    Friend WithEvents TextBox1 As TextBox
 End Class
